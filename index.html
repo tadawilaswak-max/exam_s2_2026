@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تعليمات الامتحان</title>
+  <style>
+    :root {
+      --primary: #0d6efd;
+      --primary-dark: #0a58ca;
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --border: #e5e7eb;
+      --success: #198754;
+      --warning-bg: #74b7f7;
+      --warning-border: #f5c542;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #eef4ff, #f8fbff);
+      color: var(--text);
+      direction: rtl;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+      border: 1px solid rgba(13, 110, 253, 0.08);
+    }
+
+    .hero {
+      background-image: url('path/to/your/banner-image.png');
+      background-size: cover; /* لتغطية المساحة بالكامل */
+      background-position: center center; /* لضبط الصورة في وسط المستطيل */
+      background-repeat: no-repeat; /* لمنع تكرار الصورة */
+      color: rgb(49, 93, 251);
+      padding: 30px 24px;
+      text-align: center;
+    }
+
+   
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .content {
+      padding: 28px;
+    }
+
+    .section {
+      margin-bottom: 28px;
+      
+    }
+
+    .section h2 {
+      color: var(--primary);
+      margin-top: 0;
+      margin-bottom: 14px;
+      font-size: 1.35rem;
+      text-align: center;
+    }
+
+    .section p,
+    .section li {
+      line-height: 1.9;
+      font-size: 1rem;
+    }
+
+    .section ul {
+      margin: 0;
+      padding-right: 20px;
+    }
+
+    .notice {
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      color: #000000;
+      font-weight: 600;
+      line-height: 1.8;
+      text-align: center;
+    }
+
+    .resources {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    .resource-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 18px;
+      background: #fbfdff;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .resource-card img {
+      width: 100%;
+      border-radius: 10px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .resource-card img:hover {
+      transform: scale(1.05);
+    }
+
+    .resource-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 18px rgba(13, 110, 253, 0.08);
+    }
+
+    .resource-card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.05rem;
+      color: #0f172a;
+      text-align: center;
+    }
+
+    .resource-card p {
+      margin: 0 0 14px;
+      color: var(--muted);
+    }
+
+    .resource-card a {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      color: var(--primary);
+      font-weight: bold;
+    }
+
+    .confirm-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 18px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #f9fbff;
+    }
+
+    .confirm-box input[type="checkbox"] {
+      margin-top: 5px;
+      transform: scale(1.2);
+      accent-color: var(--success);
+    }
+
+    .actions {
+      text-align: center;
+      margin-top: 24px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      background: var(--primary);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.25s ease, transform 0.2s ease;
+      font-size: 1rem;
+      opacity: 0.55;
+      pointer-events: none;
+    }
+
+    .btn.enabled {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .btn.enabled:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .footer-note {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 1.55rem;
+      }
+
+      .content {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="hero">
+        <!-- هنا تم إضافة البانر -->
+        <img src="images/banner.png" alt="Banner Image" style="width:100%; height:auto;">
+        <h2>توجيهات مهمة</h2>
+          <ul>
+            <li>يتكون الامتحان من جزئين: الجزء الأول يتضمن أسئلة مباشرة، بينما الجزء الثاني يتضمن تمرينًا عمليًا.</li>
+            <li>لا تخرج من ورقة الامتحان تحت أي ظرف. بمجرد الانتقال إلى الجزء الثاني، لا يمكنك العودة إلى الجزء الأول.</li>
+            <li>التمسك بالورقة الإلكترونية: تأكد من أنك لا تفتح أي علامات تبويب أو تطبيقات أخرى، حيث قد يُعتبر ذلك إجراءً مخالفًا.</li>
+            <li>الامتحان محدود بالوقت: تأكد من إدارة وقتك بشكل صحيح طوال مدة الامتحان.</li>
+            <li>بمجرد بدء الامتحان، سيتم احتساب الوقت تلقائيًا ولن تتمكن من إيقاف الساعة أو تمديد الوقت.</li>
+            <li>قبل الضغط على "إرسال"، تأكد من أنك قد أجبت على جميع الأسئلة.</li>
+            <li>لا تستخدم أي مصادر خارجية أثناء الإجابة على الأسئلة.</li>            
+          </ul>       
+      </div>
+
+            
+        <div class="section">
+          <div class="notice">
+         <h3>تاريخ اليوم 10 ماي 2026. </h3>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2>مدة الامتحان 1سا و10 دقائق</h2>
+          <div class="resources">
+
+            <div class="resource-card">
+             <img src="images/examen1.png" alt="فيديو الدرس"> 
+            </div>
+            <div class="resource-card">
+            <img src="images/بالتوفيق.jpeg" alt="فيديو الدرس">
+            </a>
+              <a href="" target="_blank">
+            الاستاذ الدكتور زيات عادل
+              </a> 
+            </div>
+            <div class="resource-card">
+              <img src="images/examen1.png" alt="فيديو الدرس">
+            
+            </div>
+ 
+          </div>
+        </div>
+
+        <div class="section">
+          <div class="confirm-box">
+            <input type="checkbox" id="confirmRead">
+            <label for="confirmRead">
+              <strong>أتعهد بالإلتزم بكل تعليمات الامتحان</strong>
+            </label>
+          </div>
+        </div>
+        <div class="section">
+          <h2>ادخل رقم التسجيل لبدأ الامتحان</h2>
+          <input type="text" id="regNumber" placeholder="أدخل رقم التسجيل كاملا " style="
+            width:100%;
+            padding:12px;
+            border-radius:10px;
+            border:1px solid #ccc;
+            text-align:center;
+            font-size:16px;
+          ">
+          <div id="regMessage" style="text-align:center; margin-top:10px; font-weight:bold;"></div>
+        </div>
+        <div class="actions">
+          <a id="nextBtn" class="btn" href="index1_4bis.html">إدخال المعلومات</a>
+          <div class="footer-note">لن يتم تفعيل الزر إلا بعد وضع علامة في خانة التأكيد.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  const confirmRead = document.getElementById('confirmRead');
+  const nextBtn = document.getElementById('nextBtn');
+  const regNumberInput = document.getElementById('regNumber');
+  const regMessage = document.getElementById('regMessage');
+
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzhjNvLWGMj1-EKrCGslXLhPw5TX260IuDRkVxQ_pIy700o2MTxWILftyRlOCIu7VtO/exec";
+
+  let isRegAllowed = false;
+
+  function updateButtonState() {
+    if (confirmRead.checked && isRegAllowed) {
+      nextBtn.classList.add('enabled');
+      nextBtn.href = `index1_4bis.html?regNumber=${encodeURIComponent(regNumberInput.value.trim())}`;
+    } else {
+      nextBtn.classList.remove('enabled');
+    }
+  }
+
+  async function checkRegistrationNumber() {
+    const regNumber = regNumberInput.value.trim();
+    regMessage.textContent = "";
+    regMessage.style.color = "red";
+    isRegAllowed = false;
+    updateButtonState();
+
+    if (!regNumber) {
+      return;
+    }
+
+    regMessage.textContent = "جارٍ التحقق...";
+    regMessage.style.color = "#0d6efd";
+
+    try {
+      const response = await fetch(`${SCRIPT_URL}?regNumber=${encodeURIComponent(regNumber)}`);
+      const data = await response.json();
+
+      if (data.status === "success" && data.allowed) {
+        isRegAllowed = true;
+        regMessage.textContent = "رقم التسجيل صحيح، يمكنك المتابعة.";
+        regMessage.style.color = "green";
+      } else {
+        isRegAllowed = false;
+        regMessage.textContent = "رقم التسجيل غير موجود في القائمة المسموح لها.";
+        regMessage.style.color = "red";
+      }
+    } catch (error) {
+      isRegAllowed = false;
+      regMessage.textContent = "حدث خطأ أثناء التحقق من رقم التسجيل.";
+      regMessage.style.color = "red";
+    }
+
+    updateButtonState();
+  }
+
+  confirmRead.addEventListener('change', updateButtonState);
+  regNumberInput.addEventListener('blur', checkRegistrationNumber);
+  regNumberInput.addEventListener('input', function () {
+    isRegAllowed = false;
+    regMessage.textContent = "";
+    updateButtonState();
+  });
+  
+</script>
+</body>
+</html>
